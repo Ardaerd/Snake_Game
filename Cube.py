@@ -13,7 +13,10 @@ class Cube:
 
     
     def move(self, dx, dy):
-        pass
+        self.dx = dx
+        self.dy = dy
+        self.pos(self.pos[0] + self.dx, self.pos[1] + self.dy)
+        
     
     def draw(self, surface, eyes=False):
         pass
