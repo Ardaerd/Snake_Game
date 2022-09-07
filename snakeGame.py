@@ -1,10 +1,23 @@
 import pygame 
 
 
-def drawGrid(w,rows,surface):
-    pass
+def drawGrid(width,rows,surface):
+    size = width // rows  # cells size
+    
+    # initial coordinates
+    x = 0
+    y = 0
+    
+    for i in range(rows):
+        x = x + size
+        y = y + size
+        
+        pygame.draw.line(surface, (255,255,255), (x,0), (x,height))
+        pygame.draw.line(surface, (255,255,255), (0,y), (width,y))
+    
 
 def redrawWindow(surface):
+    global rows,width
     surface.fill((0,0,0))
     drawGrid(width,rows,surface)
     pygame.display.update()
@@ -29,4 +42,5 @@ def main():
         pygame.time.delay(50)
         clock.tick(10)
         redrawWindow(win)
-        
+
+main()
