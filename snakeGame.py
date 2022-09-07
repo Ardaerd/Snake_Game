@@ -1,5 +1,5 @@
 import pygame 
-
+from Snake import Snake
 
 def drawGrid(width,rows,surface):
     size = width // rows  # cells size
@@ -35,6 +35,7 @@ def main():
     height = 500
     rows = 20
     win = pygame.display.set_mode((width, height))
+    s = Snake((255,0,0), (10,10))
     flag = True
     clock = pygame.time.Clock()
     
