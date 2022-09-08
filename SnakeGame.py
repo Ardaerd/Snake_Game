@@ -3,7 +3,12 @@ from pygame.locals import *
 
 
 def drawBlock():
-    pass
+    surface.fill((0, 0, 0))
+    surface.blit(block, (block_x, block_y))
+    pygame.display.flip()
+    
+
+    
 
 
 if __name__ == '__main__':
@@ -11,7 +16,7 @@ if __name__ == '__main__':
     
     surface = pygame.display.set_mode((500,500))
     # To change background color of the screen
-    #surface.fill((22, 33, 62))
+    surface.fill((0, 0, 0))
     
     block = pygame.image.load("snake.png").convert()
     
@@ -32,7 +37,9 @@ if __name__ == '__main__':
                 pygame.quit()
             
             else:
+                
                 pressed = pygame.key.get_pressed()
+                
                 
                 if pressed[pygame.K_DOWN]:
                     block_y += 10
@@ -50,4 +57,4 @@ if __name__ == '__main__':
                     block_x += 10
                     drawBlock()
                 elif pressed[pygame.K_ESCAPE]:
-                    running = False
+                    running = False 
