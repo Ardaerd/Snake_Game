@@ -1,3 +1,4 @@
+import time
 import pygame
 from Snake import Snake
 
@@ -41,3 +42,7 @@ class Game:
                         
                     elif pressed[pygame.K_ESCAPE]:
                         running = False 
+  
+                self.snake.walk()
+                time.sleep(0.2)
+                
