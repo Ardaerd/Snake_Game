@@ -10,10 +10,13 @@ class Game:
         self.surface = pygame.display.set_mode((500, 500))
         # To change background color of the screen
         self.surface.fill((0, 0, 0))
-        self.snake = Snake(self.surface)
+        self.snake = Snake(self.surface,6)
         self.snake.draw()
+        self.clock = pygame.time.Clock()
 
     def run(self):
+        pygame.time.delay(50)
+        self.clock.tick(10)
         running = True
         
         while running:
@@ -43,6 +46,6 @@ class Game:
                     elif pressed[pygame.K_ESCAPE]:
                         running = False 
   
-                self.snake.walk()
-                time.sleep(0.2)
+            self.snake.walk()
+            time.sleep(0.2)
                 
