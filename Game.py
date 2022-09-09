@@ -7,7 +7,7 @@ class Game:
 
     def __init__(self):
         pygame.init()
-        self.surface = pygame.display.set_mode((500, 500))
+        self.surface = pygame.display.set_mode((800, 600))
         # To change background color of the screen
         self.surface.fill((0, 0, 0))
         self.snake = Snake(self.surface,6)
