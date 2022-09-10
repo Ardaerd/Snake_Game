@@ -27,7 +27,6 @@ class Snake:
             self.x[i] = self.x[i-1]
             self.y[i] = self.y[i-1]
             
-        
         if self.direction == "down":
             self.y[0] += SIZE
         
