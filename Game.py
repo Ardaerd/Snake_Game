@@ -15,14 +15,14 @@ class Game:
         self.surface.fill((0, 0, 0))
         
         # Initializing the snake and drawing it
-        self.snake = Snake(self.surface,6)
+        self.snake = Snake(self.surface,1)
         self.snake.draw()
         
         # Initializing the snack and drawing it
         self.snack = Snack(self.surface)
         self.snack.draw()
         
-        self.clock = pygame.time.Clock()
+        #self.clock = pygame.time.Clock()
 
 
     def play(self):
@@ -34,8 +34,9 @@ class Game:
             
     # Check the collision between head of snakes and snack
     def is_collision(self,x1,y1,x2,y2):
-        if x1 >= x2 and x1 <= x2 + SIZE:
-            if y1 >= y2 and y1 <= y2 + SIZE:
+        if x1 >= x2 and x1 < x2 + SIZE:
+            if y1 >= y2 and y1 < y2 + SIZE:
+                self.snake.increase_length()
                 self.snack.move()
                 return True
         
@@ -43,7 +44,7 @@ class Game:
     
     
     def run(self):
-        self.clock.tick(5)
+        #self.clock.tick(5)
         running = True
         
         while running:

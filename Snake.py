@@ -14,6 +14,12 @@ class Snake:
         self.direction = "down"
         
     
+    def increase_length(self):
+        self.length += 1
+        self.x.append(-1)
+        self.y.append(-1)
+    
+    
     # Snake should keep going according to the last direction
     def walk(self):
         
