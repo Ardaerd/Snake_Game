@@ -41,7 +41,6 @@ class Snake:
         self.parent_screen.fill((0, 0, 0))
         for i in range(self.length):
             self.parent_screen.blit(self.block, (self.x[i], self.y[i]))
-        pygame.display.flip()
         
     # Changing the direction of the snake
     def moveUp(self):

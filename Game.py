@@ -1,6 +1,7 @@
 import time
 import pygame
 from Snake import Snake
+from Snack import Snack
 
 
 class Game:
@@ -12,11 +13,13 @@ class Game:
         self.surface.fill((0, 0, 0))
         self.snake = Snake(self.surface,6)
         self.snake.draw()
+        self.snack = Snack(self.surface)
+        self.snack.draw()
         self.clock = pygame.time.Clock()
 
     def run(self):
         pygame.time.delay(50)
-        self.clock.tick(10)
+        self.clock.tick(5)
         running = True
         
         while running:
@@ -46,6 +49,10 @@ class Game:
                     elif pressed[pygame.K_ESCAPE]:
                         running = False 
   
-            self.snake.walk()
+            self.play()
             time.sleep(0.2)
+        
+    def play(self):
+            self.snake.walk()
+            self.snack.draw()
                 
