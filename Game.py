@@ -10,6 +10,7 @@ class Game:
 
     def __init__(self):
         pygame.init()
+        pygame.font.init()
         self.surface = pygame.display.set_mode((800, 600))
         # To change background color of the screen
         self.surface.fill((0, 0, 0))
@@ -25,8 +26,14 @@ class Game:
         #self.clock = pygame.time.Clock()
 
 
+    def display_score(self):
+        font = pygame.font.SysFont('calibre-bold',40)
+        score = font.render(f'Score: {self.snake.length}',True,(255,255,255))
+        self.surface.blit(score,(650,10))
+
     def play(self):
         self.snake.walk()
+        self.display_score()
         self.snack.draw()
         
         if self.is_collision(self.snake.x[0], self.snake.y[0], self.snack.x, self.snack.y):
@@ -57,7 +64,6 @@ class Game:
                 else:
                     
                     pressed = pygame.key.get_pressed()
-                    
                     
                     if pressed[pygame.K_DOWN]:
                         self.snake.moveDown()
