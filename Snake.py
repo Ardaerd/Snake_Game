@@ -8,7 +8,7 @@ class Snake:
     def __init__(self, parent_screen, length):
         self.length = length
         self.parent_screen = parent_screen
-        self.block = pygame.image.load("snake.png").convert()
+        self.block = pygame.image.load("resources\snake_down.png").convert()
         self.x = [SIZE]*length
         self.y = [SIZE]*length
         self.direction = "down"
@@ -50,13 +50,17 @@ class Snake:
     # Changing the direction of the snake
     def moveUp(self):
         self.direction = "up"
+        self.block = pygame.image.load("resources\snake_up.png").convert()
         
     def moveDown(self):
         self.direction = "down"
+        self.block = pygame.image.load("resources\snake_down.png").convert()
         
     def moveLeft(self):
         self.direction = "left"
+        self.block = pygame.image.load("resources\snake_left.png").convert()
         
     def moveRight(self):
-        self.direction = "right"   
+        self.direction = "right" 
+        self.block = pygame.image.load("resources\snake_right.png").convert()  
     

@@ -45,6 +45,11 @@ class Game:
         pygame.display.flip()
 
 
+    def restart(self):
+        self.snake = Snake(self.surface,1)
+        self.snack = Snack(self.surface)
+    
+
     def display_score(self):
         font = pygame.font.SysFont('calibre-bold',40)
         score = font.render(f'Score: {self.snake.length}',True,COLOR_WHITE)
@@ -55,7 +60,7 @@ class Game:
         self.display_score()
         self.snack.draw()
         
-        # Snake collide with the snack
+        # Head of the Snake collide with the snack
         if self.is_collision(self.snake.x[0], self.snake.y[0], self.snack.x, self.snack.y):
             self.snake.increase_length()
             self.snack.move()
@@ -65,6 +70,11 @@ class Game:
         for i in range(1, self.snake.length):
             if self.is_collision(self.snake.x[0], self.snake.y[0], self.snake.x[i], self.snake.y[i]):
                 raise "Game over"
+        
+        # Body parts of the Snake colliding with Snack
+        for i in range(1, self.snake.length):
+            if self.is_collision(self.snack.x, self.snack.y, self.snake.x[i], self.snake.y[i]):
+                self.snack.move()
             
             
     # Check the collision between head of snakes and snack
@@ -117,6 +127,7 @@ class Game:
             except Exception as e:
                 self.show_game_over()
                 pause = True
+                self.restart()
 
             time.sleep(0.2)
         
