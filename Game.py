@@ -58,6 +58,7 @@ class Game:
     def play(self):
         self.snake.walk()
         self.display_score()
+        self.check_borders(self.snake.x[0],self.snake.y[0])
         self.snack.draw()
         
         # Head of the Snake collide with the snack
@@ -76,7 +77,6 @@ class Game:
             if self.is_collision(self.snack.x, self.snack.y, self.snake.x[i], self.snake.y[i]):
                 self.snack.move()
             
-            
     # Check the collision between head of snakes and snack
     def is_collision(self,x1,y1,x2,y2):
         if x1 >= x2 and x1 < x2 + SIZE:
@@ -85,6 +85,17 @@ class Game:
         
         return False
     
+    # Check the snake is crossing the border 
+    def check_borders(self,x,y):
+        if x > 800:
+            self.snake.x[0] = 0
+        if x < 0:
+            self.snake.x[0] = 800
+            
+        if y > 600:
+            self.snake.y[0] = 0
+        if y < 0:
+            self.snake.y[0] = 600
     
     def run(self):
         self.clock.tick(60)
