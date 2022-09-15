@@ -2,7 +2,7 @@ import pygame
 import random
 
 
-SIZE = 40
+SIZE = 64
 
 class Snack:
     
@@ -19,6 +19,6 @@ class Snack:
         
     
     def move(self):
-        self.x = random.randint(0,19)*SIZE
-        self.y = random.randint(0,14)*SIZE
+        self.x = random.randint(0,18)*SIZE
+        self.y = random.randint(0,11)*SIZE
         
